@@ -1,4 +1,4 @@
-// Define the heart shape (level 0)
+// Define the heart shape (level 2)
 const width = 30;
 const height = 30;
 
