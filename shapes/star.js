@@ -3,7 +3,7 @@ const width = 30;
 const height = 30;
 
 // Scaling factor; larger values make the star smaller, smaller values make it larger
-const scaleFactor = 0.15;
+const scaleFactor = 0.10;
 
 export const starShape = {
     isPointInShape: (x, y) => {
