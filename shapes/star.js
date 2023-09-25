@@ -1,4 +1,4 @@
-// Define the star shape (level 3)
+// Define the star shape hi (level 3)
 const width = 30;
 const height = 30;
 
