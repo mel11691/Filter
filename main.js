@@ -8,10 +8,10 @@ const canvas = document.getElementById("terrainCanvas");
         const height = 30;
         const cellSize = canvas.width / width;
 
-        import * as circleShape from './shapes/circle.js';
-        import * as squareShape from './shapes/square.js';
-        import * as heartShape from './shapes/heart.js';
-        import * as starShape from './shapes/star.js';
+        import  {circleShape} from './shapes/circle.js';
+        import {squareShape} from './shapes/square.js';
+        import {heartShape} from './shapes/heart.js';
+        import {starShape} from './shapes/star.js';
 
 
         // Define shapes for each level: , smileyShape, jackolanternShape, wheelShape, sharkShape, saturnShape, leopardShape
