@@ -15,8 +15,21 @@ export const starShape = {
         const gridX = (x - centerX) * scaleFactor;
         const gridY = (y - centerY) * scaleFactor;
 
-        // Use the star equation to determine if the point is inside the star
-        const inStar = Math.abs(Math.sin(5 * Math.atan2(gridY, gridX))) < 0.5;
-        return inStar;
+        // Angle of each segment in radians
+        const segmentAngle = 2 * Math.PI / 5;
+
+        // Distance from the center to the point
+        const distance = Math.sqrt(gridX ** 2 + gridY ** 2);
+
+        // Angle from the center to the point
+        const angle = Math.atan2(gridY, gridX);
+
+        // Determine which segment the point is in
+        const segment = Math.floor((angle + Math.PI) / segmentAngle);
+
+        // Determine if the point is inside the pentagon
+        const inPentagon = distance <= Math.cos(segment * segmentAngle - Math.PI) / Math.cos(segmentAngle / 2);
+
+        return inPentagon;
     }
 };
