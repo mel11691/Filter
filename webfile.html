@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Load noUiSlider from a different source -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.3/nouislider.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.3/nouislider.min.js"></script>
+
+    <title>2D Array Visualization</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+
+        /* Style for the container divs */
+        .container {
+            display: flex;
+            align-items: center;
+            margin: 10px;
+        }
+
+        /* Style for labels */
+        label {
+            width: 100px;
+        }
+
+        /* Style for input boxes */
+        input[type="text"] {
+            margin: 0 10px;
+            width: 30px;
+        }
+
+        /* Flex the sliders to occupy remaining space */
+        .slider {
+            width: 50%;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="terrainCanvas" width="400" height="400"></canvas>
+    <div id="popup" style="position: absolute; display: none; background: white; padding: 10px;"></div>
+
+    <!-- Container for Yang Range -->
+    <div class="container">
+        <label for="yangMin">Yang Range:</label>
+        <input type="text" id="yangMin">
+        <input type="text" id="yangMax">
+        <div id="yangSlider" class="slider"></div>
+    </div>
+
+    <!-- Container for Yin Range -->
+    <div class="container">
+        <label for="yinMin">Yin Range:</label>
+        <input type="text" id="yinMin">
+        <input type="text" id="yinMax">
+        <div id="yinSlider" class="slider"></div>
+    </div>
+
+    <!-- Next Level and Previous Level buttons -->
+    <div class="container">
+        <button id="prevLevelButton">Previous Level</button>
+        <button id="nextLevelButton">Next Level</button>
+    </div>
+
+        
+    <script type="module" src="main.js"></script>
+</body>
+</html>
