@@ -33,6 +33,15 @@ export let yangRangeEnd = yangRangeStart + 20;
 yinRangeStart = Math.max(2, yinRangeStart); // Ensures yinRangeStart is at least 2
 yangRangeStart = Math.max(2, yangRangeStart); // Ensures yangRangeStart is at least 2
 
+// Declare and export variables for sliders and inputs
+export let yangMin, yangMax, yinMin, yinMax;
+export let yangSlider = document.getElementById("yangSlider");
+export let yinSlider = document.getElementById("yinSlider");
+export let yangMinInput = document.getElementById("yangMin");
+export let yangMaxInput = document.getElementById("yangMax");
+export let yinMinInput = document.getElementById("yinMin");
+export let yinMaxInput = document.getElementById("yinMax");
+
 
 
 // Code moved to drawTerrain.js
