@@ -1,6 +1,4 @@
 
-import { drawTerrain } from './drawTerrain.js';
-
 const canvas = document.getElementById("terrainCanvas");
         const ctx = canvas.getContext("2d");
         const popup = document.getElementById("popup")

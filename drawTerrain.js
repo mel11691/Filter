@@ -1,5 +1,3 @@
-import { terrain, currentLevel, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd } from './terrainData.js';
-
 const canvas = document.getElementById("terrainCanvas");
 const ctx = canvas.getContext("2d");
 const cellSize = canvas.width / width;
