@@ -269,7 +269,7 @@ if (areSlidersExclusivelyWithinShape()) {
 }
 
 // Code moved to popup.js
-import { setupTooltip } from './popup.js';
+import { setupTooltip } from './UI.js';
 setupTooltip(canvas, popup, cellSize, terrain);
 
 // Initial terrain draw
