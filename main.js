@@ -6,9 +6,9 @@
         const popup = document.getElementById("popup")
 
         // Define the terrain size
-        const width = 30;
-        const height = 30;
-        const cellSize = canvas.width / width;
+        export const width = 30;
+        export const height = 30;
+        export const cellSize = canvas.width / width;
 
         import  {circleShape} from './shapes/circle.js';
         import {squareShape} from './shapes/square.js';
@@ -20,7 +20,7 @@
         const levels = [circleShape, squareShape, heartShape, starShape];
 
         // Define the current level (0 for circle, 1 for square)
-        let currentLevel = 0;
+        export let currentLevel = 0;
 
         // Define the terrain array in the global scope
         let terrain = [];
