@@ -1,4 +1,8 @@
 
+        const canvas = document.getElementById("terrainCanvas");
+        const ctx = canvas.getContext("2d");
+        const popup = document.getElementById("popup")
+
         // Define the terrain size
         const width = 30;
         const height = 30;
@@ -7,10 +11,6 @@
         export { width, height, cellSize };
 
         import { drawTerrain } from './drawTerrain.js';
-
-        const canvas = document.getElementById("terrainCanvas");
-        const ctx = canvas.getContext("2d");
-        const popup = document.getElementById("popup")
 
         import  {circleShape} from './shapes/circle.js';
         import {squareShape} from './shapes/square.js';
