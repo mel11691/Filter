@@ -25,11 +25,11 @@
         // Define the terrain array in the global scope
         export let terrain = [];
         
-// Declare variables for Yin and Yang ranges
-let yinRangeStart = Math.floor(Math.random() * 78) + 1;
-let yinRangeEnd = yinRangeStart + 20;
-let yangRangeStart = Math.floor(Math.random() * 78) + 1;
-let yangRangeEnd = yangRangeStart + 20;
+// Declare and export variables for Yin and Yang ranges
+export let yinRangeStart = Math.floor(Math.random() * 78) + 1;
+export let yinRangeEnd = yinRangeStart + 20;
+export let yangRangeStart = Math.floor(Math.random() * 78) + 1;
+export let yangRangeEnd = yangRangeStart + 20;
 yinRangeStart = Math.max(2, yinRangeStart); // Ensures yinRangeStart is at least 2
 yangRangeStart = Math.max(2, yangRangeStart); // Ensures yangRangeStart is at least 2
 
