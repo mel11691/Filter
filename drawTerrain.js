@@ -1,7 +1,8 @@
-import { width, height, terrain, yangMin, yangMax, yinMin, yinMax, yangSlider, yinSlider, yangMinInput, yangMaxInput, yinMinInput, yinMaxInput } from './main.js';
-
 const canvas = document.getElementById("terrainCanvas");
 const ctx = canvas.getContext("2d");
+
+import { width, height, terrain, yangMin, yangMax, yinMin, yinMax, yangSlider, yinSlider, yangMinInput, yangMaxInput, yinMinInput, yinMaxInput } from './main.js';
+
 const cellSize = canvas.width / width;
 
 // Code moved from main.js
