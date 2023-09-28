@@ -20,10 +20,10 @@
         const levels = [circleShape, squareShape, heartShape, starShape];
 
         // Define the current level (0 for circle, 1 for square)
-        export let currentLevel = 0;
+        let currentLevel = 0;
 
         // Define the terrain array in the global scope
-        let terrain = [];
+        export let terrain = [];
         
 // Declare variables for Yin and Yang ranges
 let yinRangeStart = Math.floor(Math.random() * 78) + 1;
