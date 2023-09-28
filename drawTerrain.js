@@ -21,3 +21,50 @@ function drawTerrain() {
 }
 
 export { drawTerrain };
+// Initialize the noUiSliders after the rest of the code
+const yangMinInput = document.getElementById("yangMin");
+const yangMaxInput = document.getElementById("yangMax");
+const yinMinInput = document.getElementById("yinMin");
+const yinMaxInput = document.getElementById("yinMax");
+
+const yangSlider = document.getElementById("yangSlider");
+const yinSlider = document.getElementById("yinSlider");
+
+const yangStart = 1;
+const yangEnd = 100;
+const yinStart = 1;
+const yinEnd = 100;
+
+noUiSlider.create(yangSlider, {
+    start: [yangStart, yangEnd],
+    connect: true,
+    range: {
+        'min': yangStart,
+        'max': yangEnd
+    },
+    step: 1,
+    format: {
+        to: value => Math.round(value),
+        from: value => value
+    }
+});
+
+noUiSlider.create(yinSlider, {
+    start: [yinStart, yinEnd],
+    connect: true,
+    range: {
+        'min': yinStart,
+        'max': yinEnd
+    },
+    step: 1,
+    format: {
+        to: value => Math.round(value),
+        from: value => value
+    }
+});
+
+// Set initial values for input fields
+yangMinInput.value = yangStart;
+yangMaxInput.value = yangEnd;
+yinMinInput.value = yinStart;
+yinMaxInput.value = yinEnd;
