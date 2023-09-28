@@ -1,7 +1,7 @@
 
 const canvas = document.getElementById("terrainCanvas");
         const ctx = canvas.getContext("2d");
-        const popup = document.getElementById("popup");
+        const popup = document.getElementById("popup")
 
         // Define the terrain size
         const width = 30;
@@ -269,6 +269,8 @@ if (areSlidersExclusivelyWithinShape()) {
 }
 
 // Code moved to popup.js
+import { setupTooltip } from './popup.js';
+setupTooltip(canvas, popup, cellSize, terrain);
 
 // Initial terrain draw
 drawTerrain();
