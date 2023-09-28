@@ -244,28 +244,14 @@ function drawTerrain() {
         }
     }
 
-
-// Win Check
+// Debug Console
 function areSlidersExclusivelyWithinShape() {
     console.log("yangStart:", yangStart, "yangEnd:", yangEnd);
     console.log("yinStart:", yinStart, "yinEnd:", yinEnd);
     console.log("yinRangeStart:", yinRangeStart, "yinRangeEnd:", yinRangeEnd);
     console.log("yangRangeStart:", yangRangeStart, "yangRangeEnd:", yangRangeEnd);
-
-    if (yangStart >= yangRangeStart && yangEnd <= yangRangeEnd && 
-        yinStart >= yinRangeStart && yinEnd <= yinRangeEnd) {
-        return true;
-    }
-
-    return false;
 }
-
-// Check if the sliders are exclusively within the shape
-if (areSlidersExclusivelyWithinShape()) {
-    console.log("WIN!");
-} else {
-    console.log("LOSE");
-}
+areSlidersExclusivelyWithinShape();
 }
 
 // Code moved to popup.js
