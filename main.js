@@ -1,4 +1,3 @@
-
 const canvas = document.getElementById("terrainCanvas");
         const ctx = canvas.getContext("2d");
         const popup = document.getElementById("popup")
@@ -91,10 +90,6 @@ function generateTerrain() {
 generateTerrain();
 
 visualizer(ctx, canvas, terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd);
-
-
-
-
 
 // Code moved to popup.js
 import { setupTooltip } from './UI.js';
