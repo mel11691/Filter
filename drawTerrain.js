@@ -1,4 +1,10 @@
-export const visualizer = (ctx, clearRect, ) => {
+export const visualizer = (ctx, canvas) => {
+
+    // Define the terrain size
+    const width = 30;
+    const height = 30;
+    const cellSize = canvas.width / width;
+
 // Initialize the noUiSliders after the rest of the code
 const yangMinInput = document.getElementById("yangMin");
 const yangMaxInput = document.getElementById("yangMax");
