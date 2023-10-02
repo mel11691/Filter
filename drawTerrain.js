@@ -19,19 +19,31 @@ const yangEnd = 100;
 const yinStart = 1;
 const yinEnd = 100;
 
-yangSlider.noUiSlider.updateOptions({
+noUiSlider.create(yangSlider, {
     start: [yangStart, yangEnd],
+    connect: true,
     range: {
         'min': yangStart,
         'max': yangEnd
+    },
+    step: 1,
+    format: {
+        to: value => Math.round(value),
+        from: value => value
     }
 });
 
-yinSlider.noUiSlider.updateOptions({
+noUiSlider.create(yinSlider, {
     start: [yinStart, yinEnd],
+    connect: true,
     range: {
         'min': yinStart,
         'max': yinEnd
+    },
+    step: 1,
+    format: {
+        to: value => Math.round(value),
+        from: value => value
     }
 });
 
