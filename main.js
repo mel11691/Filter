@@ -11,7 +11,7 @@ const canvas = document.getElementById("terrainCanvas");
         import {squareShape} from './shapes/square.js';
         import {heartShape} from './shapes/heart.js';
 
-        import { visualizer } from './drawTerrain.js';
+        import { visualizer } from './slidersAndDraw.js';
         
         // Define shapes for each level: starShape, smileyShape, jackolanternShape, wheelShape, sharkShape, saturnShape, leopardShape
         const levels = [circleShape, squareShape, heartShape];
