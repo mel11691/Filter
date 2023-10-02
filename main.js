@@ -13,6 +13,7 @@ const canvas = document.getElementById("terrainCanvas");
         import {heartShape} from './shapes/heart.js';
         import {starShape} from './shapes/star.js';
 
+        import { visualizer } from './drawTerrain.js';
 
         // Define shapes for each level: , smileyShape, jackolanternShape, wheelShape, sharkShape, saturnShape, leopardShape
         const levels = [circleShape, squareShape, heartShape, starShape];
@@ -30,58 +31,6 @@ let yangRangeStart = Math.floor(Math.random() * 78) + 1;
 let yangRangeEnd = yangRangeStart + 20;
 yinRangeStart = Math.max(2, yinRangeStart); // Ensures yinRangeStart is at least 2
 yangRangeStart = Math.max(2, yangRangeStart); // Ensures yangRangeStart is at least 2
-
-
-
-// Initialize the noUiSliders after the rest of the code
-const yangMinInput = document.getElementById("yangMin");
-const yangMaxInput = document.getElementById("yangMax");
-const yinMinInput = document.getElementById("yinMin");
-const yinMaxInput = document.getElementById("yinMax");
-
-const yangSlider = document.getElementById("yangSlider");
-const yinSlider = document.getElementById("yinSlider");
-
-const yangStart = 1;
-const yangEnd = 100;
-const yinStart = 1;
-const yinEnd = 100;
-
-noUiSlider.create(yangSlider, {
-    start: [yangStart, yangEnd],
-    connect: true,
-    range: {
-        'min': yangStart,
-        'max': yangEnd
-    },
-    step: 1,
-    format: {
-        to: value => Math.round(value),
-        from: value => value
-    }
-});
-
-noUiSlider.create(yinSlider, {
-    start: [yinStart, yinEnd],
-    connect: true,
-    range: {
-        'min': yinStart,
-        'max': yinEnd
-    },
-    step: 1,
-    format: {
-        to: value => Math.round(value),
-        from: value => value
-    }
-});
-
-// Set initial values for input fields
-yangMinInput.value = yangStart;
-yangMaxInput.value = yangEnd;
-yinMinInput.value = yinStart;
-yinMaxInput.value = yinEnd;
-
-
 
 // Event listener for the "Next Level" button
 document.getElementById("nextLevelButton").addEventListener("click", () => {
@@ -102,22 +51,6 @@ document.getElementById("prevLevelButton").addEventListener("click", () => {
 // Function to generate terrain for the current level
 function generateTerrain() {
     const currentShape = levels[currentLevel];
-
-    // Reset slider values
-    yangMinInput.value = yangStart;
-    yangMaxInput.value = yangEnd;
-    yinMinInput.value = yinStart;
-    yinMaxInput.value = yinEnd;
-    yangSlider.noUiSlider.set([yangStart, yangEnd]);
-    yinSlider.noUiSlider.set([yinStart, yinEnd]);
-
-    
-
-    // Generate new random Yin and Yang ranges
-    yinRangeStart = Math.floor(Math.random() * 78) + 1;
-    yinRangeEnd = yinRangeStart + 20;
-    yangRangeStart = Math.floor(Math.random() * 78) + 1;
-    yangRangeEnd = yangRangeStart + 20;
     
     // Generate terrain data
     terrain = [];
@@ -158,6 +91,8 @@ function generateTerrain() {
 // Initialize the terrain for the first level (circle)
 generateTerrain();
 
+visualizer();
+
 // Add event listeners for keyup on input fields
 yangMinInput.addEventListener("keyup", handleInputKey);
 yangMaxInput.addEventListener("keyup", handleInputKey);
@@ -171,87 +106,6 @@ function handleInputKey(event) {
     } else if (event.key === "Delete") {
         event.target.value = "";
     }
-}
-
-// Update sliders and redraw terrain when input values change
-yangMinInput.addEventListener("input", () => {});
-yangMaxInput.addEventListener("input", () => {});
-yinMinInput.addEventListener("input", () => {});
-yinMaxInput.addEventListener("input", () => {});
-
-yangSlider.noUiSlider.on("update", (values, handle) => {
-    if (handle === 0) {
-        yangMinInput.value = Math.round(values[0]);
-    } else {
-        yangMaxInput.value = Math.round(values[1]);
-    }
-    drawTerrain();
-});
-
-yinSlider.noUiSlider.on("update", (values, handle) => {
-    if (handle === 0) {
-        yinMinInput.value = Math.round(values[0]);
-    } else {
-        yinMaxInput.value = Math.round(values[1]);
-    }
-    drawTerrain();
-});
-
-function updateYangSlider() {
-    const min = parseInt(yangMinInput.value);
-    const max = parseInt(yangMaxInput.value);
-    yangSlider.noUiSlider.set([min, max]);
-}
-
-function updateYinSlider() {
-    const min = parseInt(yinMinInput.value);
-    const max = parseInt(yinMaxInput.value);
-    yinSlider.noUiSlider.set([min, max]);
-}
-
-// Draw the terrain visualization
-function drawTerrain() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    for (let x = 0; x < width; x++) {
-        for (let y = 0; y < height; y++) {
-            const cell = terrain[x][y];
-            const withinYangRange = cell.yang >= yangMin && cell.yang <= yangMax;
-            const withinYinRange = cell.yin >= yinMin && cell.yin <= yinMax;
-            const color = withinYangRange && withinYinRange ? "lightgreen" : "white";
-            ctx.fillStyle = color;
-            ctx.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);
-        }
-    }
-
-    const yangValues = yangSlider.noUiSlider.get();
-    const yinValues = yinSlider.noUiSlider.get();
-
-    const yangStart = parseInt(yangValues[0]);
-    const yangEnd = parseInt(yangValues[1]);
-    const yinStart = parseInt(yinValues[0]);
-    const yinEnd = parseInt(yinValues[1]);
-    
-    //Color terrain
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    for (let x = 0; x < width; x++) {
-        for (let y = 0; y < height; y++) {
-            const withinYangRange = terrain[x][y].yang >= yangStart && terrain[x][y].yang <= yangEnd;
-            const withinYinRange = terrain[x][y].yin >= yinStart && terrain[x][y].yin <= yinEnd;
-            const color = withinYangRange && withinYinRange ? "lightgreen" : "white";
-            ctx.fillStyle = color;
-            ctx.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);
-        }
-    }
-
-// Debug Console
-function areSlidersExclusivelyWithinShape() {
-    console.log("yangStart:", yangStart, "yangEnd:", yangEnd);
-    console.log("yinStart:", yinStart, "yinEnd:", yinEnd);
-    console.log("yinRangeStart:", yinRangeStart, "yinRangeEnd:", yinRangeEnd);
-    console.log("yangRangeStart:", yangRangeStart, "yangRangeEnd:", yangRangeEnd);
-}
-areSlidersExclusivelyWithinShape();
 }
 
 // Code moved to popup.js
