@@ -36,6 +36,7 @@ yangRangeStart = Math.max(2, yangRangeStart); // Ensures yangRangeStart is at le
 
 // Function to generate terrain for the current level
 function generateTerrain() {
+    console.log("Generating terrain for level " + currentLevel);
     const currentShape = levels[currentLevel];
 
 
