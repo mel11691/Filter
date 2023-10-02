@@ -22,7 +22,7 @@ const canvas = document.getElementById("terrainCanvas");
         // Define the terrain array in the global scope
         let terrain = [];
         
-// Declare variables for Yin and Yang ranges
+// Declare variables for Yin and Yang ranges  
 let yinRangeStart = Math.floor(Math.random() * 78) + 1;
 let yinRangeEnd = yinRangeStart + 20;
 let yangRangeStart = Math.floor(Math.random() * 78) + 1;
@@ -35,6 +35,7 @@ document.getElementById("nextLevelButton").addEventListener("click", () => {
     if (currentLevel < levels.length - 1) {
         currentLevel++;
         generateTerrain();
+        visualizer(ctx, canvas, terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd, yinSlider, yangSlider);
     }
 });
 
@@ -43,6 +44,7 @@ document.getElementById("prevLevelButton").addEventListener("click", () => {
     if (currentLevel > 0) {
         currentLevel--;
         generateTerrain();
+        visualizer(ctx, canvas, terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd, yinSlider, yangSlider);
     }
 });
 
@@ -92,5 +94,5 @@ generateTerrain();
 visualizer(ctx, canvas, terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd);
 
 // Code moved to popup.js
-import { setupTooltip } from './UI.js';
+import { setupTooltip } from './Tooltip.js';
 setupTooltip(canvas, popup, cellSize, terrain);
