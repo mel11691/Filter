@@ -12,6 +12,7 @@ const canvas = document.getElementById("terrainCanvas");
         import {heartShape} from './shapes/heart.js';
 
         import { visualizer } from './drawTerrain.js';
+        
 
         // Define shapes for each level: starShape, smileyShape, jackolanternShape, wheelShape, sharkShape, saturnShape, leopardShape
         const levels = [circleShape, squareShape, heartShape];
@@ -21,6 +22,7 @@ const canvas = document.getElementById("terrainCanvas");
 
         // Define the terrain array in the global scope
         let terrain = [];
+        
         
 // Declare variables for Yin and Yang ranges
 let yinRangeStart = Math.floor(Math.random() * 78) + 1;
@@ -37,6 +39,12 @@ function generateTerrain() {
     const currentShape = levels[currentLevel];
 
 
+yinRangeStart = Math.floor(Math.random() * 78) + 1;
+yinRangeEnd = yinRangeStart + 20;
+yangRangeStart = Math.floor(Math.random() * 78) + 1;
+yangRangeEnd = yangRangeStart + 20;
+yinRangeStart = Math.max(2, yinRangeStart); // Ensures yinRangeStart is at least 2
+yangRangeStart = Math.max(2, yangRangeStart); // Ensures yangRangeStart is at least 2
     
     // Generate terrain data
     terrain = [];
@@ -72,18 +80,22 @@ function generateTerrain() {
             }
         }
     }
+    
 }
 
 // Initialize the terrain for the first level (circle)
 generateTerrain();
 
-visualizer(ctx, canvas, terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd);
+const resetSliders = visualizer(ctx, canvas, terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd);
+    resetSliders();
+
 
 // Event listener for the "Next Level" button
 document.getElementById("nextLevelButton").addEventListener("click", () => {
     if (currentLevel < levels.length - 1) {
         currentLevel++;
         generateTerrain();
+        resetSliders();
     }
 });
 
@@ -92,19 +104,10 @@ document.getElementById("prevLevelButton").addEventListener("click", () => {
     if (currentLevel > 0) {
         currentLevel--;
         generateTerrain();
+        resetSliders();
     }
 });
 
-const resetSliders = visualizer();
-resetSliders();
-
-// Declare variables for Yin and Yang ranges
-yinRangeStart = Math.floor(Math.random() * 78) + 1;
-yinRangeEnd = yinRangeStart + 20;
-yangRangeStart = Math.floor(Math.random() * 78) + 1;
-yangRangeEnd = yangRangeStart + 20;
-yinRangeStart = Math.max(2, yinRangeStart); // Ensures yinRangeStart is at least 2
-yangRangeStart = Math.max(2, yangRangeStart); // Ensures yangRangeStart is at least 2
 
 // Code moved to popup.js
 import { setupTooltip } from './Tooltip.js';
