@@ -22,16 +22,22 @@ const canvas = document.getElementById("terrainCanvas");
         // Define the terrain array in the global scope
         let terrain = [];
         
+// Declare variables for Yin and Yang ranges in the global scope
+let yinRangeStart;
+let yinRangeEnd;
+let yangRangeStart;
+let yangRangeEnd;
+
 // Function to generate terrain for the current level
 function generateTerrain() {
     console.log("Generating terrain for level " + currentLevel);
     const currentShape = levels[currentLevel];
 
-    // Declare variables for Yin and Yang ranges
-    let yinRangeStart = Math.floor(Math.random() * 78) + 1;
-    let yinRangeEnd = yinRangeStart + 20;
-    let yangRangeStart = Math.floor(Math.random() * 78) + 1;
-    let yangRangeEnd = yangRangeStart + 20;
+    // Update Yin and Yang ranges
+    yinRangeStart = Math.floor(Math.random() * 78) + 1;
+    yinRangeEnd = yinRangeStart + 20;
+    yangRangeStart = Math.floor(Math.random() * 78) + 1;
+    yangRangeEnd = yangRangeStart + 20;
     yinRangeStart = Math.max(2, yinRangeStart); // Ensures yinRangeStart is at least 2
     yangRangeStart = Math.max(2, yangRangeStart); // Ensures yangRangeStart is at least 2
     
