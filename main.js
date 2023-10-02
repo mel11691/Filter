@@ -91,26 +91,12 @@ function generateTerrain() {
 // Initialize the terrain for the first level (circle)
 generateTerrain();
 
-visualizer();
+visualizer(ctx, canvas, terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd);
 
-// Add event listeners for keyup on input fields
-yangMinInput.addEventListener("keyup", handleInputKey);
-yangMaxInput.addEventListener("keyup", handleInputKey);
-yinMinInput.addEventListener("keyup", handleInputKey);
-yinMaxInput.addEventListener("keyup", handleInputKey);
 
-function handleInputKey(event) {
-    if (event.key === "Enter") {
-        updateYangSlider();
-        updateYinSlider();
-    } else if (event.key === "Delete") {
-        event.target.value = "";
-    }
-}
+
+
 
 // Code moved to popup.js
 import { setupTooltip } from './UI.js';
 setupTooltip(canvas, popup, cellSize, terrain);
-
-// Initial terrain draw
-drawTerrain();

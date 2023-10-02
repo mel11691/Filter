@@ -1,4 +1,4 @@
-export const visualizer = (ctx, canvas) => {
+export const visualizer = (ctx, canvas, terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd) => {
 
     // Define the terrain size
     const width = 30;
@@ -58,6 +58,21 @@ yangMinInput.addEventListener("input", () => {});
 yangMaxInput.addEventListener("input", () => {});
 yinMinInput.addEventListener("input", () => {});
 yinMaxInput.addEventListener("input", () => {});
+
+// Add event listeners for keyup on input fields
+yangMinInput.addEventListener("keyup", handleInputKey);
+yangMaxInput.addEventListener("keyup", handleInputKey);
+yinMinInput.addEventListener("keyup", handleInputKey);
+yinMaxInput.addEventListener("keyup", handleInputKey);
+
+function handleInputKey(event) {
+    if (event.key === "Enter") {
+        updateYangSlider();
+        updateYinSlider();
+    } else if (event.key === "Delete") {
+        event.target.value = "";
+    }
+}
 
 yangSlider.noUiSlider.on("update", (values, handle) => {
     if (handle === 0) {
