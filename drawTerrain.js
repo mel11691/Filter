@@ -148,4 +148,14 @@ function areSlidersExclusivelyWithinShape() {
 }
 areSlidersExclusivelyWithinShape();
 }
+const resetSliders = () => {
+ // Reset slider values
+ yangMinInput.value = yangStart;
+ yangMaxInput.value = yangEnd;
+ yinMinInput.value = yinStart;
+ yinMaxInput.value = yinEnd;
+ yangSlider.noUiSlider.set([yangStart, yangEnd]);
+ yinSlider.noUiSlider.set([yinStart, yinEnd]);
+}
+return resetSliders;
 }

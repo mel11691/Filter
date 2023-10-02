@@ -30,25 +30,13 @@ let yangRangeEnd = yangRangeStart + 20;
 yinRangeStart = Math.max(2, yinRangeStart); // Ensures yinRangeStart is at least 2
 yangRangeStart = Math.max(2, yangRangeStart); // Ensures yangRangeStart is at least 2
 
-// Event listener for the "Next Level" button
-document.getElementById("nextLevelButton").addEventListener("click", () => {
-    if (currentLevel < levels.length - 1) {
-        currentLevel++;
-        generateTerrain();
-    }
-});
 
-// Event listener for the "Previous Level" button
-document.getElementById("prevLevelButton").addEventListener("click", () => {
-    if (currentLevel > 0) {
-        currentLevel--;
-        generateTerrain();
-    }
-});
 
 // Function to generate terrain for the current level
 function generateTerrain() {
     const currentShape = levels[currentLevel];
+
+
     
     // Generate terrain data
     terrain = [];
@@ -90,6 +78,33 @@ function generateTerrain() {
 generateTerrain();
 
 visualizer(ctx, canvas, terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd);
+
+// Event listener for the "Next Level" button
+document.getElementById("nextLevelButton").addEventListener("click", () => {
+    if (currentLevel < levels.length - 1) {
+        currentLevel++;
+        generateTerrain();
+    }
+});
+
+// Event listener for the "Previous Level" button
+document.getElementById("prevLevelButton").addEventListener("click", () => {
+    if (currentLevel > 0) {
+        currentLevel--;
+        generateTerrain();
+    }
+});
+
+const resetSliders = visualizer();
+resetSliders();
+
+// Declare variables for Yin and Yang ranges
+yinRangeStart = Math.floor(Math.random() * 78) + 1;
+yinRangeEnd = yinRangeStart + 20;
+yangRangeStart = Math.floor(Math.random() * 78) + 1;
+yangRangeEnd = yangRangeStart + 20;
+yinRangeStart = Math.max(2, yinRangeStart); // Ensures yinRangeStart is at least 2
+yangRangeStart = Math.max(2, yangRangeStart); // Ensures yangRangeStart is at least 2
 
 // Code moved to popup.js
 import { setupTooltip } from './Tooltip.js';
