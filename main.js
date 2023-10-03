@@ -107,14 +107,14 @@ function generateTerrain() {
 // Initialize the terrain for the first level (circle)
 generateTerrain();
 
-drawTerrain(terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd);
+drawTerrain(terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd, yinSlider, yangSlider);
 
 inputUpdate();
 yangSliderUpdate();{
-    drawTerrain(terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd);
+    drawTerrain(terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd, yinSlider, yangSlider);
 }
 yinSliderUpdate();{
-    drawTerrain(terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd);
+    drawTerrain(terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd, yinSlider, yangSlider);
 }
 
 

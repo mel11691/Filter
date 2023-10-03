@@ -67,6 +67,18 @@ yangMaxInput.addEventListener("keyup", handleInputKey);
 yinMinInput.addEventListener("keyup", handleInputKey);
 yinMaxInput.addEventListener("keyup", handleInputKey);
 
+function updateYangSlider() {
+    const min = parseInt(yangMinInput.value);
+    const max = parseInt(yangMaxInput.value);
+    yangSlider.noUiSlider.set([min, max]);
+}
+
+function updateYinSlider() {
+    const min = parseInt(yinMinInput.value);
+    const max = parseInt(yinMaxInput.value);
+    yinSlider.noUiSlider.set([min, max]);
+}
+
 function handleInputKey(event) {
     if (event.key === "Enter") {
         updateYangSlider();
