@@ -89,14 +89,14 @@ function handleInputKey(event) {
 }
 }
 
-export const yangSliderUpdate = () => {
+export const yangSliderUpdate = (terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd, yinSlider, yangSlider) => {
 yangSlider.noUiSlider.on("update", (values, handle) => {
     if (handle === 0) {
         yangMinInput.value = Math.round(values[0]);
     } else {
         yangMaxInput.value = Math.round(values[1]);
     }
-    
+    drawTerrain(terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd, yinSlider, yangSlider);
 });
 }
 export const yinSliderUpdate = () => {
