@@ -9,7 +9,7 @@ const height = 30;
 const cellSize = canvas.width / width;
 
 // Draw the terrain visualization
-export function drawTerrain(terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd) {
+export function drawTerrain(terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd, yinSlider, yangSlider) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     for (let x = 0; x < width; x++) {
