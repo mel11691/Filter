@@ -39,6 +39,7 @@ const canvas = document.getElementById("terrainCanvas");
     document.getElementById("nextLevelButton").addEventListener("click", () => {
     if (currentLevel < levels.length - 1) {
         currentLevel++;
+        console.log("Next Level: ", currentLevel, levels[currentLevel]);
         generateTerrain();
         
     }
@@ -48,6 +49,7 @@ const canvas = document.getElementById("terrainCanvas");
     document.getElementById("prevLevelButton").addEventListener("click", () => {
     if (currentLevel > 0) {
         currentLevel--;
+        console.log("Previous Level: ", currentLevel, levels[currentLevel]);
         generateTerrain();
         
     }
@@ -102,6 +104,7 @@ function generateTerrain() {
         }
     }
     
+    console.log("Generated terrain: ", terrain);
 }
 
 // Initialize the terrain for the first level (circle)
