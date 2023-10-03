@@ -11,8 +11,9 @@ const canvas = document.getElementById("terrainCanvas");
         import {squareShape} from './shapes/square.js';
         import {heartShape} from './shapes/heart.js';
 
-        import { visualizer } from './slidersAndDraw.js';
-        
+        import {sliderCreate, inputInitalValue, inputUpdate, resetValues, yangSliderUpdate, yinSliderUpdate } from './sliders.js';
+        import { drawTerrain } from './draw.js';
+
         // Define shapes for each level: starShape, smileyShape, jackolanternShape, wheelShape, sharkShape, saturnShape, leopardShape
         const levels = [circleShape, squareShape, heartShape];
 
@@ -22,16 +23,41 @@ const canvas = document.getElementById("terrainCanvas");
         // Define the terrain array in the global scope
         let terrain = [];
         
-// Declare variables for Yin and Yang ranges in the global scope
-let yinRangeStart;
-let yinRangeEnd;
-let yangRangeStart;
-let yangRangeEnd;
+    // Declare variables for Yin and Yang ranges
+    let yinRangeStart = Math.floor(Math.random() * 78) + 1;
+    let yinRangeEnd = yinRangeStart + 20;
+    let yangRangeStart = Math.floor(Math.random() * 78) + 1;
+    let yangRangeEnd = yangRangeStart + 20;
+    yinRangeStart = Math.max(2, yinRangeStart); // Ensures yinRangeStart is at least 2
+    yangRangeStart = Math.max(2, yangRangeStart); // Ensures yangRangeStart is at least 2
+    
+    
+    sliderCreate();
+    inputInitalValue();
+
+    // Event listener for the "Next Level" button
+    document.getElementById("nextLevelButton").addEventListener("click", () => {
+    if (currentLevel < levels.length - 1) {
+        currentLevel++;
+        generateTerrain();
+        
+    }
+    });
+
+// Event listener for the "Previous Level" button
+    document.getElementById("prevLevelButton").addEventListener("click", () => {
+    if (currentLevel > 0) {
+        currentLevel--;
+        generateTerrain();
+        
+    }
+    });
 
 // Function to generate terrain for the current level
 function generateTerrain() {
-    console.log("Generating terrain for level " + currentLevel);
     const currentShape = levels[currentLevel];
+
+    resetValues();
 
     // Update Yin and Yang ranges
     yinRangeStart = Math.floor(Math.random() * 78) + 1;
@@ -40,7 +66,7 @@ function generateTerrain() {
     yangRangeEnd = yangRangeStart + 20;
     yinRangeStart = Math.max(2, yinRangeStart); // Ensures yinRangeStart is at least 2
     yangRangeStart = Math.max(2, yangRangeStart); // Ensures yangRangeStart is at least 2
-    
+
     // Generate terrain data
     terrain = [];
 
@@ -81,26 +107,17 @@ function generateTerrain() {
 // Initialize the terrain for the first level (circle)
 generateTerrain();
 
-const resetSliders = visualizer(ctx, canvas, terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd);
-    resetSliders();
+drawTerrain(terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd);
 
-// Event listener for the "Next Level" button
-document.getElementById("nextLevelButton").addEventListener("click", () => {
-    if (currentLevel < levels.length - 1) {
-        currentLevel++;
-        generateTerrain();
-        resetSliders();
-    }
-});
+inputUpdate();
+yangSliderUpdate();{
+    drawTerrain(terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd);
+}
+yinSliderUpdate();{
+    drawTerrain(terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd);
+}
 
-// Event listener for the "Previous Level" button
-document.getElementById("prevLevelButton").addEventListener("click", () => {
-    if (currentLevel > 0) {
-        currentLevel--;
-        generateTerrain();
-        resetSliders();
-    }
-});
+
 
 // Code moved to popup.js
 import { setupTooltip } from './Tooltip.js';
