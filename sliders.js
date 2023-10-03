@@ -99,14 +99,14 @@ yangSlider.noUiSlider.on("update", (values, handle) => {
     drawTerrain(terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd, yinSlider, yangSlider);
 });
 }
-export const yinSliderUpdate = () => {
+export const yinSliderUpdate = (terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd, yinSlider, yangSlider) => {
 yinSlider.noUiSlider.on("update", (values, handle) => {
     if (handle === 0) {
         yinMinInput.value = Math.round(values[0]);
     } else {
         yinMaxInput.value = Math.round(values[1]);
     }
-    
+    drawTerrain(terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd, yinSlider, yangSlider);
 });
 }
 

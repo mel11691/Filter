@@ -111,9 +111,7 @@ drawTerrain(terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd, y
 
 inputUpdate();
 yangSliderUpdate(terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd, yinSlider, yangSlider);
-yinSliderUpdate();{
-    drawTerrain(terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd, yinSlider, yangSlider);
-}
+yinSliderUpdate(terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd, yinSlider, yangSlider);
 
 
 
