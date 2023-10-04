@@ -102,6 +102,7 @@ function generateTerrain() {
                 terrain[x][y] = { yin, yang };
             }
         }
+        
     }
     
     console.log("Generated terrain: ", terrain);
