@@ -39,7 +39,7 @@ const canvas = document.getElementById("terrainCanvas");
     document.getElementById("nextLevelButton").addEventListener("click", () => {
     if (currentLevel < levels.length - 1) {
         currentLevel++;
-        console.log("Next Level: ", currentLevel, levels[currentLevel]);
+        console.log("Next Level: ", currentLevel, levels[currentLevel].name);
         generateTerrain();
         
     }
@@ -49,7 +49,7 @@ const canvas = document.getElementById("terrainCanvas");
     document.getElementById("prevLevelButton").addEventListener("click", () => {
     if (currentLevel > 0) {
         currentLevel--;
-        console.log("Previous Level: ", currentLevel, levels[currentLevel]);
+        console.log("Previous Level: ", currentLevel, levels[currentLevel].name);
         generateTerrain();
         
     }

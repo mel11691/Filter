@@ -3,6 +3,7 @@
             const width = 30;
             const height = 30;
 export const circleShape = {
+        name: 'circleShape',
         isPointInShape: (x, y) => {
             const centerX = width / 2;
             const centerY = height / 2;
