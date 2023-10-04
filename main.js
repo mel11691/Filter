@@ -96,7 +96,7 @@ drawTerrain(terrain, yinSlider, yangSlider);
 setupTooltip(canvas, popup, cellSize, terrain);
 yangSliderUpdate(terrain, yinSlider, yangSlider);
 yinSliderUpdate(terrain, yinSlider, yangSlider);
-areSlidersExclusivelyWithinShape(yangStart, yangEnd, yinStart, yinEnd, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd);
+
 
 // Event listener for the "Next Level" button
 document.getElementById("nextLevelButton").addEventListener("click", () => {
