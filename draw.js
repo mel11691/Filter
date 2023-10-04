@@ -9,7 +9,7 @@ const height = 30;
 const cellSize = canvas.width / width;
 
 // Draw the terrain visualization
-export function drawTerrain(terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd, yinSlider, yangSlider) {
+export function drawTerrain(terrain, yinSlider, yangSlider) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     for (let x = 0; x < width; x++) {
@@ -42,13 +42,4 @@ export function drawTerrain(terrain, yinRangeStart, yinRangeEnd, yangRangeStart,
             ctx.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);
         }
     }
-
-// Debug Console
-function areSlidersExclusivelyWithinShape() {
-    console.log("yangStart:", yangStart, "yangEnd:", yangEnd);
-    console.log("yinStart:", yinStart, "yinEnd:", yinEnd);
-    console.log("yinRangeStart:", yinRangeStart, "yinRangeEnd:", yinRangeEnd);
-    console.log("yangRangeStart:", yangRangeStart, "yangRangeEnd:", yangRangeEnd);
-}
-areSlidersExclusivelyWithinShape();
 }

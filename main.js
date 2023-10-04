@@ -13,7 +13,7 @@ const canvas = document.getElementById("terrainCanvas");
 
         import {sliderCreate, inputInitalValue, inputUpdate, resetValues, yangSliderUpdate, yinSliderUpdate } from './sliders.js';
         import { drawTerrain } from './draw.js';
-        import { setupTooltip } from './Tooltip.js';
+        import { setupTooltip, areSlidersExclusivelyWithinShape } from './Tooltip.js';
 
         // Define shapes for each level: starShape, smileyShape, jackolanternShape, wheelShape, sharkShape, saturnShape, leopardShape
         const levels = [circleShape, squareShape, heartShape];
@@ -87,16 +87,16 @@ function generateTerrain() {
         }
         
     }
-    
-    console.log("Generated terrain: ", terrain);
 }
+
 
 // Initialize the terrain for the first level (circle)
 generateTerrain();
-drawTerrain(terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd, yinSlider, yangSlider);
+drawTerrain(terrain, yinSlider, yangSlider);
 setupTooltip(canvas, popup, cellSize, terrain);
-yangSliderUpdate(terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd, yinSlider, yangSlider);
-yinSliderUpdate(terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd, yinSlider, yangSlider);
+yangSliderUpdate(terrain, yinSlider, yangSlider);
+yinSliderUpdate(terrain, yinSlider, yangSlider);
+areSlidersExclusivelyWithinShape(yangStart, yangEnd, yinStart, yinEnd, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd);
 
 // Event listener for the "Next Level" button
 document.getElementById("nextLevelButton").addEventListener("click", () => {
@@ -104,10 +104,10 @@ document.getElementById("nextLevelButton").addEventListener("click", () => {
         currentLevel++;
         console.log("Next Level: ", currentLevel, levels[currentLevel].name);
         generateTerrain();
-        drawTerrain(terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd, yinSlider, yangSlider);
+        drawTerrain(terrain, yinSlider, yangSlider);
         setupTooltip(canvas, popup, cellSize, terrain);
-        yangSliderUpdate(terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd, yinSlider, yangSlider);
-yinSliderUpdate(terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd, yinSlider, yangSlider);
+        yangSliderUpdate(terrain, yinSlider, yangSlider);
+yinSliderUpdate(terrain, yinSlider, yangSlider);
     }
 });
 
@@ -117,13 +117,10 @@ document.getElementById("prevLevelButton").addEventListener("click", () => {
         currentLevel--;
         console.log("Previous Level: ", currentLevel, levels[currentLevel].name);
         generateTerrain();
-        drawTerrain(terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd, yinSlider, yangSlider);
+        drawTerrain(terrain, yinSlider, yangSlider);
         setupTooltip(canvas, popup, cellSize, terrain);
-        yangSliderUpdate(terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd, yinSlider, yangSlider);
-yinSliderUpdate(terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd, yinSlider, yangSlider);
+        yangSliderUpdate(terrain, yinSlider, yangSlider);
+yinSliderUpdate(terrain, yinSlider, yangSlider);
     }
 });
-
 inputUpdate();
-
-setupTooltip(canvas, popup, cellSize, terrain);

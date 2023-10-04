@@ -89,24 +89,24 @@ function handleInputKey(event) {
 }
 }
 
-export const yangSliderUpdate = (terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd, yinSlider, yangSlider) => {
+export const yangSliderUpdate = (terrain, yinSlider, yangSlider) => {
 yangSlider.noUiSlider.on("update", (values, handle) => {
     if (handle === 0) {
         yangMinInput.value = Math.round(values[0]);
     } else {
         yangMaxInput.value = Math.round(values[1]);
     }
-    drawTerrain(terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd, yinSlider, yangSlider);
+    drawTerrain(terrain, yinSlider, yangSlider);
 });
 }
-export const yinSliderUpdate = (terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd, yinSlider, yangSlider) => {
+export const yinSliderUpdate = (terrain, yinSlider, yangSlider) => {
 yinSlider.noUiSlider.on("update", (values, handle) => {
     if (handle === 0) {
         yinMinInput.value = Math.round(values[0]);
     } else {
         yinMaxInput.value = Math.round(values[1]);
     }
-    drawTerrain(terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd, yinSlider, yangSlider);
+    drawTerrain(terrain, yinSlider, yangSlider);
 });
 }
 

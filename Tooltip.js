@@ -19,3 +19,10 @@ export const setupTooltip = (canvas, popup, cellSize, terrain) => {
     });
   };
   
+  // Debug Console
+export function areSlidersExclusivelyWithinShape(yangStart, yangEnd, yinStart, yinEnd, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd) {
+  console.log("yangStart:", yangStart, "yangEnd:", yangEnd);
+  console.log("yinStart:", yinStart, "yinEnd:", yinEnd);
+  console.log("yinRangeStart:", yinRangeStart, "yinRangeEnd:", yinRangeEnd);
+  console.log("yangRangeStart:", yangRangeStart, "yangRangeEnd:", yangRangeEnd);
+}
