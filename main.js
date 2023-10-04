@@ -13,6 +13,7 @@ const canvas = document.getElementById("terrainCanvas");
 
         import {sliderCreate, inputInitalValue, inputUpdate, resetValues, yangSliderUpdate, yinSliderUpdate } from './sliders.js';
         import { drawTerrain } from './draw.js';
+        import { setupTooltip } from './Tooltip.js';
 
         // Define shapes for each level: starShape, smileyShape, jackolanternShape, wheelShape, sharkShape, saturnShape, leopardShape
         const levels = [circleShape, squareShape, heartShape];
@@ -120,3 +121,4 @@ document.getElementById("prevLevelButton").addEventListener("click", () => {
 inputUpdate();
 yangSliderUpdate(terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd, yinSlider, yangSlider);
 yinSliderUpdate(terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd, yinSlider, yangSlider);
+setupTooltip(canvas, popup, cellSize, terrain);
