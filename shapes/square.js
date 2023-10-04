@@ -1,4 +1,4 @@
-// Define the square shape (level 1)
+// Define the square shape (level 1) 
 export const squareShape = {
     isPointInShape: (x, y) => {
         // Define square boundaries (adjust as needed)
