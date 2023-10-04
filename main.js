@@ -92,8 +92,8 @@ function generateTerrain() {
 
 // Initialize the terrain for the first level (circle)
 generateTerrain();
-
 drawTerrain(terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd, yinSlider, yangSlider);
+setupTooltip(canvas, popup, cellSize, terrain);
 
 // Event listener for the "Next Level" button
 document.getElementById("nextLevelButton").addEventListener("click", () => {
@@ -102,27 +102,21 @@ document.getElementById("nextLevelButton").addEventListener("click", () => {
         console.log("Next Level: ", currentLevel, levels[currentLevel].name);
         generateTerrain();
         drawTerrain(terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd, yinSlider, yangSlider);
-        
+        setupTooltip(canvas, popup, cellSize, terrain);
     }
-    });
+});
 
 // Event listener for the "Previous Level" button
-    document.getElementById("prevLevelButton").addEventListener("click", () => {
+document.getElementById("prevLevelButton").addEventListener("click", () => {
     if (currentLevel > 0) {
         currentLevel--;
         console.log("Previous Level: ", currentLevel, levels[currentLevel].name);
         generateTerrain();
         drawTerrain(terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd, yinSlider, yangSlider);
-        
+        setupTooltip(canvas, popup, cellSize, terrain);
     }
-    });
+});
 
 inputUpdate();
 yangSliderUpdate(terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd, yinSlider, yangSlider);
 yinSliderUpdate(terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd, yinSlider, yangSlider);
-
-
-
-// Code moved to popup.js
-import { setupTooltip } from './Tooltip.js';
-setupTooltip(canvas, popup, cellSize, terrain);
