@@ -35,25 +35,7 @@ const canvas = document.getElementById("terrainCanvas");
     sliderCreate();
     inputInitalValue();
 
-    // Event listener for the "Next Level" button
-    document.getElementById("nextLevelButton").addEventListener("click", () => {
-    if (currentLevel < levels.length - 1) {
-        currentLevel++;
-        console.log("Next Level: ", currentLevel, levels[currentLevel].name);
-        generateTerrain();
-        
-    }
-    });
-
-// Event listener for the "Previous Level" button
-    document.getElementById("prevLevelButton").addEventListener("click", () => {
-    if (currentLevel > 0) {
-        currentLevel--;
-        console.log("Previous Level: ", currentLevel, levels[currentLevel].name);
-        generateTerrain();
-        
-    }
-    });
+    
 
 // Function to generate terrain for the current level
 function generateTerrain() {
@@ -112,6 +94,28 @@ function generateTerrain() {
 generateTerrain();
 
 drawTerrain(terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd, yinSlider, yangSlider);
+
+// Event listener for the "Next Level" button
+document.getElementById("nextLevelButton").addEventListener("click", () => {
+    if (currentLevel < levels.length - 1) {
+        currentLevel++;
+        console.log("Next Level: ", currentLevel, levels[currentLevel].name);
+        generateTerrain();
+        drawTerrain(terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd, yinSlider, yangSlider);
+        
+    }
+    });
+
+// Event listener for the "Previous Level" button
+    document.getElementById("prevLevelButton").addEventListener("click", () => {
+    if (currentLevel > 0) {
+        currentLevel--;
+        console.log("Previous Level: ", currentLevel, levels[currentLevel].name);
+        generateTerrain();
+        drawTerrain(terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd, yinSlider, yangSlider);
+        
+    }
+    });
 
 inputUpdate();
 yangSliderUpdate(terrain, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd, yinSlider, yangSlider);
