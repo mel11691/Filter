@@ -11,9 +11,9 @@ const canvas = document.getElementById("terrainCanvas");
         import {squareShape} from './shapes/square.js';
         import {heartShape} from './shapes/heart.js';
 
-        import {sliderCreate, inputInitalValue, inputUpdate, resetValues, yangSliderUpdate, yinSliderUpdate } from './sliders.js';
+        import {sliderCreate, inputInitalValue, inputUpdate, resetValues, sliderUpdate } from './sliders.js';
         import { drawTerrain } from './draw.js';
-        import { setupTooltip, areSlidersExclusivelyWithinShape } from './Tooltip.js';
+        import { setupTooltip, } from './Tooltip.js';
 
         // Define shapes for each level: starShape, smileyShape, jackolanternShape, wheelShape, sharkShape, saturnShape, leopardShape
         const levels = [circleShape, squareShape, heartShape];
@@ -94,8 +94,8 @@ function generateTerrain() {
 generateTerrain();
 drawTerrain(terrain, yinSlider, yangSlider);
 setupTooltip(canvas, popup, cellSize, terrain);
-yangSliderUpdate(terrain, yinSlider, yangSlider);
-yinSliderUpdate(terrain, yinSlider, yangSlider);
+sliderUpdate(terrain, yinSlider, yangSlider, yangRangeStart, yangRangeEnd, yinRangeStart, yinRangeEnd);
+
 
 
 // Event listener for the "Next Level" button
@@ -106,8 +106,8 @@ document.getElementById("nextLevelButton").addEventListener("click", () => {
         generateTerrain();
         drawTerrain(terrain, yinSlider, yangSlider);
         setupTooltip(canvas, popup, cellSize, terrain);
-        yangSliderUpdate(terrain, yinSlider, yangSlider);
-yinSliderUpdate(terrain, yinSlider, yangSlider);
+        sliderUpdate(terrain, yinSlider, yangSlider, yangRangeStart, yangRangeEnd, yinRangeStart, yinRangeEnd);
+
     }
 });
 
@@ -119,8 +119,8 @@ document.getElementById("prevLevelButton").addEventListener("click", () => {
         generateTerrain();
         drawTerrain(terrain, yinSlider, yangSlider);
         setupTooltip(canvas, popup, cellSize, terrain);
-        yangSliderUpdate(terrain, yinSlider, yangSlider);
-yinSliderUpdate(terrain, yinSlider, yangSlider);
+        sliderUpdate(terrain, yinSlider, yangSlider, yangRangeStart, yangRangeEnd, yinRangeStart, yinRangeEnd);
+
     }
 });
 inputUpdate();

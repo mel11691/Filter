@@ -89,7 +89,7 @@ function handleInputKey(event) {
 }
 }
 
-export const yangSliderUpdate = (terrain, yinSlider, yangSlider) => {
+export const sliderUpdate = (terrain, yinSlider, yangSlider, yangRangeStart, yangRangeEnd, yinRangeStart, yinRangeEnd) => {
 yangSlider.noUiSlider.on("update", (values, handle) => {
     if (handle === 0) {
         yangMinInput.value = Math.round(values[0]);
@@ -97,9 +97,11 @@ yangSlider.noUiSlider.on("update", (values, handle) => {
         yangMaxInput.value = Math.round(values[1]);
     }
     drawTerrain(terrain, yinSlider, yangSlider);
+    console.log("yangStart:", yangMinInput.value, "yangEnd:", yangMaxInput.value);
+    console.log("yangRangeStart:", yangRangeStart, "yangRangeEnd:", yangRangeEnd);
 });
-}
-export const yinSliderUpdate = (terrain, yinSlider, yangSlider) => {
+
+
 yinSlider.noUiSlider.on("update", (values, handle) => {
     if (handle === 0) {
         yinMinInput.value = Math.round(values[0]);
@@ -107,8 +109,10 @@ yinSlider.noUiSlider.on("update", (values, handle) => {
         yinMaxInput.value = Math.round(values[1]);
     }
     drawTerrain(terrain, yinSlider, yangSlider);
+    console.log("yinStart:", yinMinInput.value, "yinEnd:", yinMaxInput.value);
+    console.log("yinRangeStart:", yinRangeStart, "yinRangeEnd:", yinRangeEnd);
 });
-}
+  }
 
 export const resetValues = () => {
  // Reset slider values
