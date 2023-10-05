@@ -89,14 +89,11 @@ function generateTerrain() {
     }
 }
 
-
 // Initialize the terrain for the first level (circle)
 generateTerrain();
 drawTerrain(terrain, yinSlider, yangSlider);
 setupTooltip(canvas, popup, cellSize, terrain);
 sliderUpdate(terrain, yinSlider, yangSlider, yangRangeStart, yangRangeEnd, yinRangeStart, yinRangeEnd);
-
-
 
 // Event listener for the "Next Level" button
 document.getElementById("nextLevelButton").addEventListener("click", () => {
