@@ -107,7 +107,6 @@ document.getElementById("nextLevelButton").addEventListener("click", () => {
         drawTerrain(terrain, yinSlider, yangSlider);
         setupTooltip(canvas, popup, cellSize, terrain);
         sliderUpdate(terrain, yinSlider, yangSlider, yangRangeStart, yangRangeEnd, yinRangeStart, yinRangeEnd);
-
     }
 });
 
@@ -120,7 +119,6 @@ document.getElementById("prevLevelButton").addEventListener("click", () => {
         drawTerrain(terrain, yinSlider, yangSlider);
         setupTooltip(canvas, popup, cellSize, terrain);
         sliderUpdate(terrain, yinSlider, yangSlider, yangRangeStart, yangRangeEnd, yinRangeStart, yinRangeEnd);
-
     }
 });
 inputUpdate();
