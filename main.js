@@ -89,11 +89,16 @@ function generateTerrain() {
     }
 }
 
+let isFirstLoad = true;
+
 // Initialize the terrain for the first level (circle)
 generateTerrain();
 drawTerrain(terrain, yinSlider, yangSlider);
-setupTooltip(canvas, popup, cellSize, terrain);
-sliderUpdate(terrain, yinSlider, yangSlider, yangRangeStart, yangRangeEnd, yinRangeStart, yinRangeEnd);
+if (isFirstLoad) {
+    setupTooltip(canvas, popup, cellSize, terrain);
+    sliderUpdate(terrain, yinSlider, yangSlider, yangRangeStart, yangRangeEnd, yinRangeStart, yinRangeEnd);
+    isFirstLoad = false;
+}
 
 // Event listener for the "Next Level" button
 document.getElementById("nextLevelButton").addEventListener("click", () => {
@@ -102,8 +107,11 @@ document.getElementById("nextLevelButton").addEventListener("click", () => {
         console.log("Next Level: ", currentLevel, levels[currentLevel].name);
         generateTerrain();
         drawTerrain(terrain, yinSlider, yangSlider);
-        setupTooltip(canvas, popup, cellSize, terrain);
-        sliderUpdate(terrain, yinSlider, yangSlider, yangRangeStart, yangRangeEnd, yinRangeStart, yinRangeEnd);
+        if (isFirstLoad) {
+            setupTooltip(canvas, popup, cellSize, terrain);
+            sliderUpdate(terrain, yinSlider, yangSlider, yangRangeStart, yangRangeEnd, yinRangeStart, yinRangeEnd);
+            isFirstLoad = false;
+        }
     }
 });
 
@@ -114,8 +122,11 @@ document.getElementById("prevLevelButton").addEventListener("click", () => {
         console.log("Previous Level: ", currentLevel, levels[currentLevel].name);
         generateTerrain();
         drawTerrain(terrain, yinSlider, yangSlider);
-        setupTooltip(canvas, popup, cellSize, terrain);
-        sliderUpdate(terrain, yinSlider, yangSlider, yangRangeStart, yangRangeEnd, yinRangeStart, yinRangeEnd);
+        if (isFirstLoad) {
+            setupTooltip(canvas, popup, cellSize, terrain);
+            sliderUpdate(terrain, yinSlider, yangSlider, yangRangeStart, yangRangeEnd, yinRangeStart, yinRangeEnd);
+            isFirstLoad = false;
+        }
     }
 });
 inputUpdate();
