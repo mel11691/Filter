@@ -89,15 +89,15 @@ function generateTerrain() {
     }
 }
 
-let isFirstLoad = true;
+
 
 // Initialize the terrain for the first level (circle)
-if (isFirstLoad) {
+
 generateTerrain();
 drawTerrain(terrain, yinSlider, yangSlider);
     setupTooltip(canvas, popup, cellSize, terrain);
     sliderUpdate(terrain, yinSlider, yangSlider, yangRangeStart, yangRangeEnd, yinRangeStart, yinRangeEnd);
-}
+
 
 // Event listener for the "Next Level" button
 document.getElementById("nextLevelButton").addEventListener("click", () => {
@@ -109,7 +109,6 @@ document.getElementById("nextLevelButton").addEventListener("click", () => {
             setupTooltip(canvas, popup, cellSize, terrain);
             sliderUpdate(terrain, yinSlider, yangSlider, yangRangeStart, yangRangeEnd, yinRangeStart, yinRangeEnd);       
     }
-    isFirstLoad = false;
 });
 
 // Event listener for the "Previous Level" button
@@ -122,6 +121,5 @@ document.getElementById("prevLevelButton").addEventListener("click", () => {
             setupTooltip(canvas, popup, cellSize, terrain);
             sliderUpdate(terrain, yinSlider, yangSlider, yangRangeStart, yangRangeEnd, yinRangeStart, yinRangeEnd); 
     }
-    isFirstLoad = false;
 });
 inputUpdate();
