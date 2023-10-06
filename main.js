@@ -106,10 +106,8 @@ document.getElementById("nextLevelButton").addEventListener("click", () => {
         console.log("Next Level: ", currentLevel, levels[currentLevel].name);
         generateTerrain();
         drawTerrain(terrain, yinSlider, yangSlider);
-        if (isFirstLoad) {
             setupTooltip(canvas, popup, cellSize, terrain);
-            sliderUpdate(terrain, yinSlider, yangSlider, yangRangeStart, yangRangeEnd, yinRangeStart, yinRangeEnd);
-            }
+            sliderUpdate(terrain, yinSlider, yangSlider, yangRangeStart, yangRangeEnd, yinRangeStart, yinRangeEnd);       
     }
     isFirstLoad = false;
 });
@@ -121,10 +119,8 @@ document.getElementById("prevLevelButton").addEventListener("click", () => {
         console.log("Previous Level: ", currentLevel, levels[currentLevel].name);
         generateTerrain();
         drawTerrain(terrain, yinSlider, yangSlider);
-        if (isFirstLoad) {
             setupTooltip(canvas, popup, cellSize, terrain);
-            sliderUpdate(terrain, yinSlider, yangSlider, yangRangeStart, yangRangeEnd, yinRangeStart, yinRangeEnd);
-        }
+            sliderUpdate(terrain, yinSlider, yangSlider, yangRangeStart, yangRangeEnd, yinRangeStart, yinRangeEnd); 
     }
     isFirstLoad = false;
 });
