@@ -96,7 +96,7 @@ function generateTerrain() {
 generateTerrain();
 drawTerrain(terrain, yinSlider, yangSlider);
     setupTooltip(canvas, popup, cellSize, terrain);
-    sliderUpdate(terrain, yinSlider, yangSlider, yangRangeStart, yangRangeEnd, yinRangeStart, yinRangeEnd);
+    sliderUpdate(terrain, yinSlider, yangSlider);
 
 
 // Event listener for the "Next Level" button
@@ -107,7 +107,7 @@ document.getElementById("nextLevelButton").addEventListener("click", () => {
         generateTerrain();
         drawTerrain(terrain, yinSlider, yangSlider);
             setupTooltip(canvas, popup, cellSize, terrain);
-            sliderUpdate(terrain, yinSlider, yangSlider, yangRangeStart, yangRangeEnd, yinRangeStart, yinRangeEnd);       
+            sliderUpdate(terrain, yinSlider, yangSlider);       
     }
 });
 
@@ -119,7 +119,7 @@ document.getElementById("prevLevelButton").addEventListener("click", () => {
         generateTerrain();
         drawTerrain(terrain, yinSlider, yangSlider);
             setupTooltip(canvas, popup, cellSize, terrain);
-            sliderUpdate(terrain, yinSlider, yangSlider, yangRangeStart, yangRangeEnd, yinRangeStart, yinRangeEnd); 
+            sliderUpdate(terrain, yinSlider, yangSlider); 
     }
 });
 inputUpdate();
