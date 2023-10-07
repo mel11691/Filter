@@ -89,7 +89,7 @@ function handleInputKey(event) {
 }
 }
 
-export const sliderUpdate = (terrain, yinSlider, yangSlider) => {
+export const sliderUpdate = (terrain, yinSlider, yangSlider, yinRangeStart, yinRangeEnd, yangRangeStart, yangRangeEnd) => {
 yangSlider.noUiSlider.on("update", (values, handle) => {
     if (handle === 0) {
         yangMinInput.value = Math.round(values[0]);
