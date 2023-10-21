@@ -97,8 +97,6 @@ yangSlider.noUiSlider.on("update", (values, handle) => {
         yangMaxInput.value = Math.round(values[1]);
     }
     drawTerrain(terrain, yinSlider, yangSlider);
-    console.log("yangStart:", yangMinInput.value, "yangEnd:", yangMaxInput.value);
-    console.log("yangRangeStart:", yangRangeStart, "yangRangeEnd:", yangRangeEnd);
 });
 
 
@@ -109,8 +107,6 @@ yinSlider.noUiSlider.on("update", (values, handle) => {
         yinMaxInput.value = Math.round(values[1]);
     }
     drawTerrain(terrain, yinSlider, yangSlider);
-    console.log("yinStart:", yinMinInput.value, "yinEnd:", yinMaxInput.value);
-    console.log("yinRangeStart:", yinRangeStart, "yinRangeEnd:", yinRangeEnd);
 });
   }
 
