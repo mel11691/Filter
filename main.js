@@ -32,11 +32,8 @@ const canvas = document.getElementById("terrainCanvas");
     yinRangeStart = Math.max(2, yinRangeStart); // Ensures yinRangeStart is at least 2
     yangRangeStart = Math.max(2, yangRangeStart); // Ensures yangRangeStart is at least 2
     
-    
     sliderCreate();
     inputInitalValue();
-
-    
 
 // Function to generate terrain for the current level
 function generateTerrain() {
@@ -88,8 +85,6 @@ function generateTerrain() {
         
     }
 }
-
-
 
 // Initialize the terrain for the first level (circle)
 
