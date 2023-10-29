@@ -26,9 +26,9 @@ const canvas = document.getElementById("terrainCanvas");
         let terrain = [];
         
     // Declare variables for Yin and Yang ranges
-    let yinRangeStart = Math.floor(Math.random() * 78) + 1;
+    let yinRangeStart = Math.floor(Math.random() * 78) + 2;
     let yinRangeEnd = yinRangeStart + 20;
-    let yangRangeStart = Math.floor(Math.random() * 78) + 1;
+    let yangRangeStart = Math.floor(Math.random() * 78) + 2;
     let yangRangeEnd = yangRangeStart + 20;
     yinRangeStart = Math.max(2, yinRangeStart); // Ensures yinRangeStart is at least 2
     yangRangeStart = Math.max(2, yangRangeStart); // Ensures yangRangeStart is at least 2
@@ -43,9 +43,9 @@ function generateTerrain() {
     resetValues();
 
     // Update Yin and Yang ranges
-    yinRangeStart = Math.floor(Math.random() * 78) + 1;
+    yinRangeStart = Math.floor(Math.random() * 78) + 2;
     yinRangeEnd = yinRangeStart + 20;
-    yangRangeStart = Math.floor(Math.random() * 78) + 1;
+    yangRangeStart = Math.floor(Math.random() * 78) + 2;
     yangRangeEnd = yangRangeStart + 20;
     yinRangeStart = Math.max(2, yinRangeStart); // Ensures yinRangeStart is at least 2
     yangRangeStart = Math.max(2, yangRangeStart); // Ensures yangRangeStart is at least 2
