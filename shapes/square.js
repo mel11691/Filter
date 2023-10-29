@@ -1,6 +1,6 @@
 // Define the square shape (level 1) 
 export const squareShape = {
-    name: 'squareShape',
+    name: 'square',
     isPointInShape: (x, y) => {
         // Define square boundaries (adjust as needed)
         const minX = 10;

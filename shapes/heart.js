@@ -9,6 +9,7 @@ const scaleFactor = 0.15;
 const cleaveFactor = 0.3;
 
 export const heartShape = {
+    name: "heart",
     isPointInShape: (x, y) => {
         // Center of the heart
         const centerX = width / 2;
