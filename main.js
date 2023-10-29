@@ -11,7 +11,7 @@ const canvas = document.getElementById("terrainCanvas");
         import {squareShape} from './shapes/square.js';
         import {heartShape} from './shapes/heart.js';
 
-        import {sliderCreate, inputInitalValue, inputUpdate, resetValues, sliderUpdate } from './sliders.js';
+        import {sliderCreate, destorySlider, inputInitalValue, inputUpdate, resetValues, sliderUpdate } from './sliders.js';
         import { drawTerrain } from './draw.js';
         import { setupTooltip, } from './Tooltip.js';
 
@@ -99,6 +99,8 @@ document.getElementById("nextLevelButton").addEventListener("click", () => {
     if (currentLevel < levels.length - 1) {
         currentLevel++;
         console.log("Next Level: ", currentLevel, levels[currentLevel].name);
+        destorySlider();
+        sliderCreate();
         generateTerrain();
         drawTerrain(terrain, yinSlider, yangSlider);
             setupTooltip(canvas, popup, cellSize, terrain);
@@ -111,6 +113,8 @@ document.getElementById("prevLevelButton").addEventListener("click", () => {
     if (currentLevel > 0) {
         currentLevel--;
         console.log("Previous Level: ", currentLevel, levels[currentLevel].name);
+        destorySlider();
+        sliderCreate();
         generateTerrain();
         drawTerrain(terrain, yinSlider, yangSlider);
             setupTooltip(canvas, popup, cellSize, terrain);
