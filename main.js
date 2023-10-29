@@ -98,6 +98,7 @@ drawTerrain(terrain, yinSlider, yangSlider);
 document.getElementById("nextLevelButton").addEventListener("click", () => {
     if (currentLevel < levels.length - 1) {
         currentLevel++;
+        console.clear()
         console.log("Next Level: ", currentLevel, levels[currentLevel].name);
         destorySlider();
         sliderCreate();
@@ -112,6 +113,7 @@ document.getElementById("nextLevelButton").addEventListener("click", () => {
 document.getElementById("prevLevelButton").addEventListener("click", () => {
     if (currentLevel > 0) {
         currentLevel--;
+        console.clear()
         console.log("Previous Level: ", currentLevel, levels[currentLevel].name);
         destorySlider();
         sliderCreate();
