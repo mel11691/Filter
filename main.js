@@ -10,13 +10,14 @@ const canvas = document.getElementById("terrainCanvas");
         import  {circleShape} from './shapes/circle.js';
         import {squareShape} from './shapes/square.js';
         import {heartShape} from './shapes/heart.js';
+        import {starShape} from './shapes/star.js';
 
         import {sliderCreate, destorySlider, inputInitalValue, inputUpdate, resetValues, sliderUpdate } from './sliders.js';
         import { drawTerrain } from './draw.js';
         import { setupTooltip, } from './Tooltip.js';
 
-        // Define shapes for each level: starShape, smileyShape, jackolanternShape, wheelShape, sharkShape, saturnShape, leopardShape
-        const levels = [circleShape, squareShape, heartShape];
+        // Define shapes for each level: , smileyShape, jackolanternShape, wheelShape, sharkShape, saturnShape, leopardShape
+        const levels = [circleShape, squareShape, heartShape, starShape];
 
         // Define the current level (0 for circle, 1 for square)
         let currentLevel = 0;

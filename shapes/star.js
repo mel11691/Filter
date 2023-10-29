@@ -6,6 +6,7 @@ const height = 30;
 const scaleFactor = 0.10;
 
 export const starShape = {
+    name: "star",
     isPointInShape: (x, y) => {
         // Define the vertices of the star
         const vertices = [
