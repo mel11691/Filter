@@ -4,7 +4,7 @@ const height = 30;
 // Define the star shape (level 3)
 const centerX = width / 2;
 const centerY = height / 2;
-const outerRadius = width / 2;
+const outerRadius = width / 2.25;
 const innerRadius = outerRadius / 2;
 const vertices = [];
 
