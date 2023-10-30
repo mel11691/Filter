@@ -1,28 +1,39 @@
-// Define the star shape
 const width = 30;
 const height = 30;
 
-// Scaling factor; larger values make the star smaller, smaller values make it larger
-const scaleFactor = 0.1;
+// Define the star shape (level 3)
+const centerX = width / 2;
+const centerY = height / 2;
+const outerRadius = width / 2;
+const innerRadius = outerRadius / 2;
+const vertices = [];
 
-// Thickness factor; larger values make the arms of the star thicker
-const thicknessFactor = 0.7;
+for (let point = 0; point < 5; point++) {
+    let outerAngle = 2 * Math.PI * point / 5 - Math.PI / 2;
+    let innerAngle = 2 * Math.PI * (point + 0.5) / 5 - Math.PI / 2;
+
+    vertices.push({
+        x: centerX + outerRadius * Math.cos(outerAngle),
+        y: centerY + outerRadius * Math.sin(outerAngle)
+    });
+
+    vertices.push({
+        x: centerX + innerRadius * Math.cos(innerAngle),
+        y: centerY + innerRadius * Math.sin(innerAngle)
+    });
+}
 
 export const starShape = {
     name: "star",
     isPointInShape: (x, y) => {
-        // Center of the star
-        const centerX = width / 2;
-        const centerY = height / 2;
+        let inside = false;
+        for (let i = 0, j = vertices.length - 1; i < vertices.length; j = i++) {
+            let xi = vertices[i].x, yi = vertices[i].y;
+            let xj = vertices[j].x, yj = vertices[j].y;
 
-        // Transform coordinates to make (centerX, centerY) the origin and apply scaling
-        const gridX = (x - centerX) * scaleFactor;
-        const gridY = (y - centerY) * scaleFactor;
-
-        // Use the equation for a 5-pointed star to determine if the point is inside the star
-        const r = Math.sqrt(Math.pow(gridX, 2) + Math.pow(gridY, 2));
-        const theta = Math.atan2(gridY, gridX);
-        const starEdge = 0.5 * (1 - Math.sin(5 * theta)) + thicknessFactor;
-        return r <= starEdge;
+            let intersect = ((yi > y) !== (yj > y)) && (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
+            if (intersect) inside = !inside;
+        }
+        return inside;
     }
 };
