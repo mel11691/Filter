@@ -28,8 +28,10 @@ export const jackOLanternShape = {
         //let inNose = x >= centerX - noseWidth / 2 && x <= centerX + noseWidth / 2 && y >= centerY && y <= centerY + noseHeight;
 
         // Define the mouth 
-        let inTeeth = y <= centerY + faceRadius / 2 + mouthHeight / 3  && y >= centerY + faceRadius * 2 / 3;
-        let inMouth = Math.pow(x - centerX, 2) / Math.pow(mouthWidth, 2) + Math.pow(y - (centerY + faceRadius / 2), 2) / Math.pow(mouthHeight, 2) <= 1 && y >= centerY + mouthHeight && !inTeeth;
+        let inLeftTooth = y <= centerY + faceRadius / 2 + mouthHeight / 4 && (centerX - width * 5 / 32 <= x && x <= centerX - width * 2 / 32);
+        let inRightTooth = y <= centerY + faceRadius / 2 + mouthHeight / 4 && (centerX + width * 5 / 32 >= x && x >= centerX + width * 2 / 32);
+        let inBottomTooth = y >= centerY + faceRadius / 2 + mouthHeight / 2 && (centerX - width * 2 / 32 <= x && x <= centerX + width * 2 / 32);
+        let inMouth = Math.pow(x - centerX, 2) / Math.pow(mouthWidth, 2) + Math.pow(y - (centerY + faceRadius / 2), 2) / Math.pow(mouthHeight, 2) <= 1 && y >= centerY + mouthHeight && !inLeftTooth && !inRightTooth && !inBottomTooth;
         
 
         // The point is in the shape if it's within the face but not within the eyes, nose, or mouth
