@@ -1,7 +1,5 @@
 const canvas = document.getElementById("terrainCanvas");
 const ctx = canvas.getContext("2d");
-const yangSlider = document.getElementById("yangSlider");
-const yinSlider = document.getElementById("yinSlider");
 
 // Define the terrain size
 const width = 30;

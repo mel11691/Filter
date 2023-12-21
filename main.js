@@ -1,6 +1,5 @@
-const canvas = document.getElementById("terrainCanvas");
-       
-        const popup = document.getElementById("popup")
+const canvas = document.getElementById("terrainCanvas");    
+const popup = document.getElementById("popup")
 
         // Define the terrain size
         const width = 30;
