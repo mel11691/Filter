@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Load noUiSlider from a different source -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.3/nouislider.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.3/nouislider.min.js"></script>
+
+    <title>2D Array Visualization</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+
+        /* Style for the container divs */
+        .container {
+            display: flex;
+            align-items: center;
+            margin: 10px;
+        }
+         </style>
+</head>
+<body>
+    <canvas id="terrainCanvas" width="400" height="400"></canvas>
+    <div id="popup" style="position: absolute; display: none; background: white; padding: 10px;"></div>
+   
+    <script type="module">
+const canvas = document.getElementById("terrainCanvas");
+const ctx = canvas.getContext("2d");
+
+// Define the terrain size
+const width = 30;
+const height = 30;
+const cellSize = canvas.width / width;
+
+import { jackOLanternShape } from './shapes/jackOLantern.js';
+
+const level = jackOLanternShape
+
+function testTerrain() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    for (let x = 0; x < width; x++) {
+        for (let y = 0; y < height; y++) {
+            const color = level.isPointInShape(x,y)? "lightgreen" : "white";
+            ctx.fillStyle = color;
+            ctx.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);
+        }
+    }
+}
+testTerrain()
+</script>
+</body>
+</html>
