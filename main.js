@@ -11,14 +11,14 @@ const popup = document.getElementById("popup")
         import {heartShape} from './shapes/heart.js';
         import {starShape} from './shapes/star.js';
         import {smileyShape} from './shapes/smiley.js';
-        import { jackOLanternShape } from './shapes/jackOLantern.js';
+        //import { jackOLanternShape } from './shapes/jackOLantern.js';
 
         import {sliderCreate, destorySlider, inputInitalValue, inputUpdate, resetValues, sliderUpdate } from './sliders.js';
         import { drawTerrain } from './draw.js';
         import { setupTooltip, } from './Tooltip.js';
 
         // Define shapes for each level: wheelShape, sharkShape, saturnShape, leopardShape
-        const levels = [circleShape, squareShape, heartShape, starShape, smileyShape, jackOLanternShape ];
+        const levels = [circleShape, squareShape, heartShape, starShape, smileyShape];
 
         // Define the current level (0 for circle, 1 for square)
         let currentLevel = 0;
